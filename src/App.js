@@ -1,7 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+const { io } = require("socket.io-client");
 
 function App() {
+  const socket = io({
+    path: "https://afa-demo.interaktiv.sg/api/",
+  });
+
+  socket.on("refetchQueue", (arg) => {
+    console.log(arg); // world
+  });
+
+  console.log(socket);
   return (
     <div className="App">
       <header className="App-header">
